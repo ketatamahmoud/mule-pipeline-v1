@@ -15,9 +15,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name : ls
-        run : ls
+        run : ls -a
       - name : pwd
         run : pwd
+      - name : cd
+        run : cd .github/workflows/actions
+      - name: ls 
+        run : ls
       # Use the build job template from the same repository
       - name: Build code
-        uses: ./.github/workflows/jobs/build
+        uses: ./build-template
