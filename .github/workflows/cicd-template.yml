@@ -14,7 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
       
       # Use the build job template from the same repository
       - name: Build code
-        uses: ./actions/build-template
+        uses: ./.github/workflows/actions/build-template
