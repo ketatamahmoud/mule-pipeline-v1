@@ -16,7 +16,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
-      
+      - name : ls
+        run : ls
+      - name : pwd
+        run : pwd
       # Use the build job template from the same repository
       - name: Build code
-        uses: ./.github/workflows/actions/build-template
+        uses: "./.github/workflows/jobs/build-template.yml"
