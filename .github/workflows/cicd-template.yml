@@ -22,4 +22,4 @@ jobs:
         run : pwd
       # Use the build job template from the same repository
       - name: Build code
-        uses: ./.github/workflows/jobs/build-template
+        uses: ./.github/workflows/jobs/build
