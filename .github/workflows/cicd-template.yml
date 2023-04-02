@@ -10,20 +10,20 @@ on:
   workflow_dispatch:
 jobs:
    build:
-    uses: ./.github/workflows/actions/build-template.yaml
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-#       - name : ls
-#         run : ls -a
-#       - name : pwd
-#         run : pwd
-#       - name : cd
-#         run : cd .github/workflows/actions
+
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout code
+         uses: actions/checkout@v2
+       - name : ls
+         run : ls -a
+       - name : pwd
+         run : pwd
+       - name : cd
+         run : cd .github/workflows/actions
 #       - name: ls 
 #         run : ls
-#       # Use the build job template from the same repository
-#       - name: Build code
-#         uses: ./.github/workflows/actions/build-template.yaml
+        # Use the build job template from the same repository
+       - name: Build code
+         uses: mule-pipeline/mule-pipeline/.github/workflows/actions/build-template@v1
 
