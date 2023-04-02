@@ -17,4 +17,4 @@ jobs:
       
       # Use the build job template from the same repository
       - name: Build code
-        uses: ./.github/workflows/actions/build-template
+        uses: ./actions/build-template
