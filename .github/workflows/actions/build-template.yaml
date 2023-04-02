@@ -1,3 +1,4 @@
+name: build-template
 jobs:
   build:
     runs-on: ubuntu-latest
