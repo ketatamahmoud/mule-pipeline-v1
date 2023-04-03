@@ -7,18 +7,13 @@ jobs:
    build:
 
      runs-on: ubuntu-latest
+     name: A job to say hello
      steps:
-       - name: Checkout code
-         uses: actions/checkout@v2
-       - name : ls
-         run : ls -a
-       - name : pwd
-         run : pwd
-       - name : cd
-         run : cd .github/workflows/actions
-#       - name: ls 
-#         run : ls
-        # Use the build job template from the same repository
-       - name: Build code
-         uses: mule-pipeline/mule-pipeline/.github/workflows/actions/build-template@v1
+      - uses: actions/checkout@v3
+      - id: foo
+        uses: actions/jira-action/hello-world-composite-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 
