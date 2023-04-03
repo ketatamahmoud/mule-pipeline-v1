@@ -29,5 +29,7 @@ jobs:
       uses: ./.github/workflows/jira-jobs.yaml
       with:
         config-path: .github/labeler.yml
+      secrets:
+        envPAT: ${{ secrets.GITHUB_TOKEN }}
 
 
