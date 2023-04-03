@@ -4,14 +4,33 @@ on:
 
   workflow_dispatch:
 jobs:
-   build:
-
-     runs-on: ubuntu-latest
-     name: A job to say hello
-     steps:
-      - uses: actions/checkout@v3
-      - uses: mule-pipeline/.github/workflows/jira-jobs.yml@main
+  call-jira-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Jira Action
+        uses: ./.github/actions/jira-action
         with:
-          name: mahmoud
+          name: 'World'
+  call-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Action
+        uses: ./.github/actions/action
+        with:
+          name: 'World'
+  call-Reusable-workflows-local-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Reusable workflows local repo
+        uses: ./.github/workflows/jira-jobs.yaml
+        with:
+          name: 'World'
+
 
 
