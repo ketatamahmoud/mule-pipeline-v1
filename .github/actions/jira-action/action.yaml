@@ -12,6 +12,9 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: echo
+      shell: bash
+      run: echo "Hello World"
     - run: echo Hello ${{ inputs.name }}.
       shell: bash
     - id: random-number-generator

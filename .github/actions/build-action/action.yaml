@@ -1,0 +1,9 @@
+name: 'build'
+description: 'Builds the project'
+runs:
+    using: "composite"
+    steps:
+        - name: Build
+          shell: bash
+          run: |
+                echo "Building the project"

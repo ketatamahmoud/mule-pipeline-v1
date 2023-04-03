@@ -13,24 +13,21 @@ jobs:
         uses: ./.github/actions/jira-action
         with:
           name: 'World'
-  call-action:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Action
-        uses: ./.github/actions/action
-        with:
-          name: 'World'
-  call-Reusable-workflows-local-repo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Reusable workflows local repo
-        uses: ./.github/workflows/jira-jobs.yaml
-        with:
-          name: 'World'
-
+  call-workflow-passing-data:
+    uses: ketatamahmoud/mule-pipeline/.github/workflows/jira-jobs.yaml@main
+    with:
+      config-path: .github/labeler.yml
+    secrets:
+      envPAT: ${{ secrets.envPAT }}
+  call-workflow-2-passing-data:
+    uses: /mule-pipeline/.github/workflows/jira-jobs.yaml@main
+    with:
+      config-path: .github/labeler.yml
+    secrets:
+      envPAT: ${{ secrets.envPAT }}
+    call-workflow-3-passing-data:
+      uses: ./.github/workflows/jira-jobs.yaml
+      with:
+        config-path: .github/labeler.yml
 
 

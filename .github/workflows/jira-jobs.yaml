@@ -1,21 +1,18 @@
 on:
   workflow_call:
     inputs:
-      name:
-        description: 'Who to greet'
+      config-path:
         required: true
-        default: 'World'
-
-    outputs:
-      random-number:
-        description: 'Random number'
-        value: ${{ steps.random-number-generator.outputs.random-id }}
+        type: string
+    secrets:
+      envPAT:
+        required: true
 jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: echo
-        run: echo "Hello World"
+      - uses: actions/labeler@v4
+        with:
+          repo-token: ${{ secrets.envPAT }}
+          configuration-path: ${{ inputs.config-path }}
