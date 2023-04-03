@@ -25,11 +25,15 @@ jobs:
 #       config-path: .github/labeler.yml
 #     secrets:
 #       envPAT: ${{ secrets.envPAT }}
+#   call-workflow-3-passing-data:
+#       uses: ./.github/workflows/jira-jobs.yaml
+#       with:
+#         config-path: .github/labeler.yml
+#       secrets:
+#         envPAT: ${{ secrets.GITHUB_TOKEN }}
   call-workflow-3-passing-data:
-      uses: ./.github/workflows/jira-jobs.yaml
+      uses: ./.github/workflows/test/workflow.yml
       with:
         config-path: .github/labeler.yml
-      secrets:
-        envPAT: ${{ secrets.GITHUB_TOKEN }}
 
 
