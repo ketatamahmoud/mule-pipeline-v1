@@ -1,0 +1,21 @@
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: 'Who to greet'
+        required: true
+        default: 'World'
+
+    outputs:
+      random-number:
+        description: 'Random number'
+        value: ${{ steps.random-number-generator.outputs.random-id }}
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: echo
+        run: echo "Hello World"
